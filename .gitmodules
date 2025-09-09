@@ -34,3 +34,6 @@
 [submodule "src/tr-lidar-unitree-l2"]
 	path = src/tr-lidar-unitree-l2
 	url = git@github.com:Triton-Robotics/tr-lidar-unitree-l2.git
+[submodule "src/point_LIO"]
+	path = src/point_LIO
+	url = git@github.com:Triton-Robotics/tr-point-LIO.git
