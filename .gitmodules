@@ -28,3 +28,6 @@
 [submodule "src/tr-bringup"]
 	path = src/tr-bringup
 	url = git@github.com:Triton-Robotics/tr-bringup.git
+[submodule "src/tr-camera-basler"]
+	path = src/tr-camera-basler
+	url = git@github.com:Triton-Robotics/tr-camera-basler.git
