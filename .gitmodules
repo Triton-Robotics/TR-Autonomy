@@ -31,3 +31,6 @@
 [submodule "src/tr-camera-basler"]
 	path = src/tr-camera-basler
 	url = git@github.com:Triton-Robotics/tr-camera-basler.git
+[submodule "src/tr-lidar-unitree-l2"]
+	path = src/tr-lidar-unitree-l2
+	url = git@github.com:Triton-Robotics/tr-lidar-unitree-l2.git
