@@ -34,3 +34,6 @@
 [submodule "src/tr-lidar-unitree-l2"]
 	path = src/tr-lidar-unitree-l2
 	url = git@github.com:Triton-Robotics/tr-lidar-unitree-l2.git
+[submodule "src/tr-estimations-node"]
+	path = src/tr-estimations-node
+	url = git@github.com:Triton-Robotics/tr-estimations-node.git
