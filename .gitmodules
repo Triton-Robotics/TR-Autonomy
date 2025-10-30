@@ -37,3 +37,6 @@
 [submodule "src/tr-state-machine"]
 	path = src/tr-state-machine
 	url = git@github.com:Triton-Robotics/tr-state-machine.git
+[submodule "src/tr-navigation-node"]
+	path = src/tr-navigation-node
+	url = git@github.com:Triton-Robotics/tr-navigation-node.git
