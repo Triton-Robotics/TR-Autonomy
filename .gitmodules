@@ -8,7 +8,7 @@
 	path = src/Aiming-Node
 	url = git@github.com:Triton-Robotics/Aiming.git
 [submodule "src/Utils"]
-	path = src/Utils
+	path = src/tr-utils
 	url = git@github.com:Triton-Robotics/Utils.git
 [submodule "src/TR-YOLOX-ROS"]
 	path = src/TR-YOLOX-ROS
