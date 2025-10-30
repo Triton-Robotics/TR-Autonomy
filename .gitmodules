@@ -37,3 +37,6 @@
 [submodule "src/tr-estimations-node"]
 	path = src/tr-estimations-node
 	url = git@github.com:Triton-Robotics/tr-estimations-node.git
+[submodule "src/tr-ballistics-node"]
+	path = src/tr-ballistics-node
+	url = git@github.com:Triton-Robotics/tr-ballistics-node.git
