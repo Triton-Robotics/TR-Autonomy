@@ -13,9 +13,6 @@
 [submodule "src/Utils"]
 	path = src/Utils
 	url = git@github.com:Triton-Robotics/Utils.git
-[submodule "src/SLAM"]
-	path = src/SLAM
-	url = git@github.com:Triton-Robotics/SLAM.git
 [submodule "src/TR-YOLOX-ROS"]
 	path = src/TR-YOLOX-ROS
 	url = git@github.com:Triton-Robotics/TR-YOLOX-ROS.git
