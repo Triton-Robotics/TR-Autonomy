@@ -5,7 +5,7 @@
 	path = src/TR-STM32-Bridge-24
 	url = git@github.com:Triton-Robotics/TR-STM32-Bridge-24.git
 [submodule "src/Aiming-Node"]
-	path = src/Aiming-Node
+	path = src/tr-aiming-node
 	url = git@github.com:Triton-Robotics/Aiming.git
 [submodule "src/Utils"]
 	path = src/tr-utils
