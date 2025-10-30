@@ -40,3 +40,6 @@
 [submodule "src/tr-ballistics-node"]
 	path = src/tr-ballistics-node
 	url = git@github.com:Triton-Robotics/tr-ballistics-node.git
+[submodule "src/tr-classical-cv"]
+	path = src/tr-classical-cv
+	url = git@github.com:Triton-Robotics/tr-classical-cv.git
