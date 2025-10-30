@@ -1,9 +1,6 @@
 [submodule "src/TR-Camera-24"]
 	path = src/TR-Camera-24
 	url = git@github.com:Triton-Robotics/TR-Camera-24.git
-[submodule "src/TR-Detector-24"]
-	path = src/TR-Detector-24
-	url = git@github.com:Triton-Robotics/TR-Detector-24.git
 [submodule "src/TR-STM32-Bridge-24"]
 	path = src/TR-STM32-Bridge-24
 	url = git@github.com:Triton-Robotics/TR-STM32-Bridge-24.git
