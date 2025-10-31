@@ -84,9 +84,14 @@ deactivate
 
 ### Configuring python ros packages to use the venv
 
-You must add the following to the `setup.cfg` file for all python packages in your workspace
+If you are using an ament_python package, you must add the following to the `setup.cfg` file
 
 ```
 [build_scripts]
 executable=/usr/bin/env python3
+```
+
+If you are using an ament_camke package, you must add the following shebang to the top of the Python file that is your entry point
+```
+#! /usr/bin/env python3
 ```
