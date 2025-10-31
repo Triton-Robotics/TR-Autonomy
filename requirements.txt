@@ -1,3 +1,11 @@
 mani_skill
 torch 
 pynput==1.8.1
+
+# colcon build deps
+catkin_pkg
+empy==3.3.4 
+lark 
+catkin-pkg 
+PyYAML 
+setuptools

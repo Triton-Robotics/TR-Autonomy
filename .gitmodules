@@ -1,29 +1,20 @@
 [submodule "src/TR-Camera-24"]
 	path = src/TR-Camera-24
 	url = git@github.com:Triton-Robotics/TR-Camera-24.git
-[submodule "src/TR-Detector-24"]
-	path = src/TR-Detector-24
-	url = git@github.com:Triton-Robotics/TR-Detector-24.git
 [submodule "src/TR-STM32-Bridge-24"]
 	path = src/TR-STM32-Bridge-24
 	url = git@github.com:Triton-Robotics/TR-STM32-Bridge-24.git
-[submodule "src/TR-Binary-Classical-Node"]
-	path = src/TR-Binary-Classical-Node
-	url = git@github.com:Triton-Robotics/TR-Binary-Classical-Node.git
 [submodule "src/Aiming-Node"]
-	path = src/Aiming-Node
+	path = src/tr-aiming-node
 	url = git@github.com:Triton-Robotics/Aiming.git
 [submodule "src/Utils"]
-	path = src/Utils
+	path = src/tr-utils
 	url = git@github.com:Triton-Robotics/Utils.git
-[submodule "src/SLAM"]
-	path = src/SLAM
-	url = git@github.com:Triton-Robotics/SLAM.git
 [submodule "src/TR-YOLOX-ROS"]
 	path = src/TR-YOLOX-ROS
 	url = git@github.com:Triton-Robotics/TR-YOLOX-ROS.git
 [submodule "src/Simulation-ManiSkill"]
-	path = src/Simulation-ManiSkill
+	path = src/tr-simulation-ManiSkill
 	url = git@github.com:Triton-Robotics/Simulation-ManiSkill.git
 [submodule "src/tr-bringup"]
 	path = src/tr-bringup
@@ -34,3 +25,18 @@
 [submodule "src/tr-lidar-unitree-l2"]
 	path = src/tr-lidar-unitree-l2
 	url = git@github.com:Triton-Robotics/tr-lidar-unitree-l2.git
+[submodule "src/tr-estimations-node"]
+	path = src/tr-estimations-node
+	url = git@github.com:Triton-Robotics/tr-estimations-node.git
+[submodule "src/tr-ballistics-node"]
+	path = src/tr-ballistics-node
+	url = git@github.com:Triton-Robotics/tr-ballistics-node.git
+[submodule "src/tr-classical-cv"]
+	path = src/tr-classical-cv
+	url = git@github.com:Triton-Robotics/tr-classical-cv.git
+[submodule "src/tr-state-machine"]
+	path = src/tr-state-machine
+	url = git@github.com:Triton-Robotics/tr-state-machine.git
+[submodule "src/tr-navigation-node"]
+	path = src/tr-navigation-node
+	url = git@github.com:Triton-Robotics/tr-navigation-node.git
