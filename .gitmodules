@@ -40,3 +40,6 @@
 [submodule "src/tr-navigation-node"]
 	path = src/tr-navigation-node
 	url = git@github.com:Triton-Robotics/tr-navigation-node.git
+[submodule "src/tr-point-LIO"]
+	path = src/tr-point-LIO
+	url = git@github.com:Triton-Robotics/tr-point-LIO.git
