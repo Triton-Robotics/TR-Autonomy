@@ -23,6 +23,7 @@ jobs:
         run: |
           # Install python3-venv if not available
           apt-get update
+          apt-get install -y python3-venv
           
           # Create virtual environment
           python3 -m venv .venv
