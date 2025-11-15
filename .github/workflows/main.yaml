@@ -20,19 +20,23 @@ jobs:
       
       - name: Cache Python dependencies
         uses: actions/cache@v3
+        id: cache-venv
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ hashFiles('requirements/all_requirements.txt') }}
           restore-keys: |
             venv-${{ runner.os }}-
       
-      - name: Cache apt packages
+      - name: Cache rosdep packages
         uses: actions/cache@v3
+        id: cache-rosdep
         with:
-          path: /var/cache/apt
-          key: apt-${{ runner.os }}-${{ hashFiles('src/**/package.xml') }}
+          path: |
+            /var/cache/apt/archives
+            /var/lib/apt/lists
+          key: rosdep-${{ runner.os }}-${{ hashFiles('src/**/package.xml') }}
           restore-keys: |
-            apt-${{ runner.os }}-
+            rosdep-${{ runner.os }}-
 
       - name: Install Python Venv (if cache miss)
         if: steps.cache-python-dependencies.outputs.cache-hit != 'true'
