@@ -33,25 +33,25 @@ jobs:
           key: apt-${{ runner.os }}-${{ hashFiles('src/**/package.xml') }}
           restore-keys: |
             apt-${{ runner.os }}-
-      
-      - name: Set up Python virtual environment
+
+      - name: Install Python Venv (if cache miss)
+        if: steps.cache-python-dependencies.outputs.cache-hit != 'true'
         shell: bash
         run: |
           # Install python3-venv if not available
           apt-get update
           apt-get install -y python3-venv
           
-          # Create virtual environment if it doesn't exist
-          if [ ! -d ".venv" ]; then
-            python3 -m venv .venv
-          fi
+          # Create virtual environment
+          python3 -m venv .venv
           
           # Activate and install dependencies
           source .venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements/all_requirements.txt
-      
-      - name: Install rosdep dependencies
+
+      - name: Install rosdep dependencies (if cache miss)
+        if: steps.cache-apt-packages.outputs.cache-hit != 'true'
         run: |
           # Update rosdep
           apt-get update
