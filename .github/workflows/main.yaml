@@ -18,6 +18,22 @@ jobs:
           submodules: recursive
           token: ${{ secrets.GH_PAT }}
       
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('requirements/all_requirements.txt') }}
+          restore-keys: |
+            venv-${{ runner.os }}-
+      
+      - name: Cache apt packages
+        uses: actions/cache@v3
+        with:
+          path: /var/cache/apt
+          key: apt-${{ runner.os }}-${{ hashFiles('src/**/package.xml') }}
+          restore-keys: |
+            apt-${{ runner.os }}-
+      
       - name: Set up Python virtual environment
         shell: bash
         run: |
@@ -25,8 +41,10 @@ jobs:
           apt-get update
           apt-get install -y python3-venv
           
-          # Create virtual environment
-          python3 -m venv .venv
+          # Create virtual environment if it doesn't exist
+          if [ ! -d ".venv" ]; then
+            python3 -m venv .venv
+          fi
           
           # Activate and install dependencies
           source .venv/bin/activate
