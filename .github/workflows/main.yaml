@@ -1,0 +1,54 @@
+name: Test Colcon Build
+on:
+  push:
+
+jobs:
+  build_and_test_ros2:
+    runs-on: ubuntu-22.04
+    container:
+      image: ros:humble-ros-base
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      
+      - name: Set up Python virtual environment
+        shell: bash
+        run: |
+          # Install python3-venv if not available
+          apt-get update
+          
+          # Create virtual environment
+          python3 -m venv .venv
+          
+          # Activate and install dependencies
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements/all_requirements.txt
+      
+      - name: Install rosdep dependencies
+        run: |
+          # Update rosdep
+          apt-get update
+          rosdep update
+          
+          # Install dependencies from all packages in src/
+          rosdep install --from-paths src --ignore-src -r -y
+      
+      - name: Build with colcon
+        shell: bash
+        run: |
+          # Activate venv and source ROS2 and workspace environment
+          source .venv/bin/activate
+          source /opt/ros/humble/setup.bash
+          
+          # Make sure build works (ignore hardware specific packages)
+          colcon build --packages-ignore \
+            camera_node \
+            tr-camera-basler \
+            lidar_node \
+            yolox_ros_cpp \
+            yolox_ros \
+            yolox_cpp
