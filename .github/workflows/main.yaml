@@ -39,7 +39,7 @@ jobs:
             rosdep-${{ runner.os }}-
 
       - name: Install Python Venv (if cache miss)
-        if: steps.cache-python-dependencies.outputs.cache-hit != 'true'
+        if: steps.cache-venv.outputs.cache-hit != 'true'
         shell: bash
         run: |
           # Install python3-venv if not available
@@ -54,9 +54,11 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements/all_requirements.txt
 
-      - name: Install rosdep dependencies (if cache miss)
-        if: steps.cache-apt-packages.outputs.cache-hit != 'true'
+      - name: Install rosdep dependencies
         run: |
+          # Ensure apt cache is preserved
+          rm -f /etc/apt/apt.conf.d/docker-clean
+
           # Update rosdep
           apt-get update
           rosdep update
