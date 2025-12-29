@@ -1,6 +1,8 @@
+# simulation deps
 mani_skill
 torch 
 pynput==1.8.1
+coacd
 
 # colcon build deps
 catkin_pkg
