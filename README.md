@@ -23,16 +23,9 @@ chmod u+x ./sim_aiming_launch.bash
 ./sim_aiming_launch.bash
 ```
 
-## Linting, Type Hints, Autocomplete
+## LSP and formatting
 
-1. install the `Robotics Developer Environment` extension on vscode
-![alt text](.md/ros2_vscode_extension.png)
-
-2. open the command pallet (ctrl + shift + p)
-
-3. run `ROS2: Update Python Path`
-
-4. run `ROS2: Update C++ Properties`
+[Follow this guide](.md/clangd_setup.md)
 
 ## Python virtual environment  
 
