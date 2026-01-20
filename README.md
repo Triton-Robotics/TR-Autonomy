@@ -25,7 +25,7 @@ chmod u+x ./sim_aiming_launch.bash
 
 ## LSP and formatting
 
-[Follow this guide](.md/clangd_setup.md)
+[Follow this guide](.md/cpp_python_lsp_setup.md)
 
 ## Python virtual environment  
 
