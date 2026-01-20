@@ -4,11 +4,20 @@
 
 ### clangd LSP
 
+0. make sure you have pulled the latest main
 1. Install the `clangd (LLVM)` vscode extension (you may be prompted to install clangd if you don't have it installed on your system)
-2. __Disable the C/C++ (Microsoft) vscode extension !!!__ if you have it installed 
+2. Turn off intellisense from default C/C++ microsoft vscode extension
+    - Add the following to your user settings `ctrl + shift + p` and select `Preferences: Open User Settings (JSON)`
+    - add: `"C_Cpp.intelliSenseEngine": "disabled",`
+
 3. you will need to `colcon build` and confirm there is a `compile_commands.json` file inside the `build/` directory 
 
-**NOTE** Clangd relies on `compile_commands.json` to be correct and up to date. If you have issues with the LSP try `colcon build` again so `compile_commands.json` is regenerated. You can also try running `clangd: Restart Language Server` from the vscode command pallet 
+**NOTE** Clangd only works if you generate a `compile_commands.json`. The `colcon_defaults.yaml` file in the root of this project automatically adds the cmake flag to generate this when you run `colcon build`. If you are setting up clangd for a different repository you should create a `colcon_defaults.yaml` file in the root of that project.
+
+__If you are having issues with clangd try running `colcon build` again__.
+
+__you can also try running `clangd: Restart Language Server`__ 
+
 
 ### Formatting 
 
