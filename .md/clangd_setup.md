@@ -1,8 +1,7 @@
-# Clangd setup
 
-## TR-Autonomy repo quick setup
+# ROS2 C++ and Python LSP setup
 
-### clangd LSP
+## clangd LSP
 
 0. make sure you have pulled the latest main
 1. Install the `clangd (LLVM)` vscode extension (you may be prompted to install clangd if you don't have it installed on your system)
@@ -19,7 +18,7 @@ __If you are having issues with clangd try running `colcon build` again__.
 __you can also try running `clangd: Restart Language Server`__ 
 
 
-### Formatting 
+## C++ Formatting 
 
 Add the following to your user settings.json (`ctrl + shift + p` and select `Preferences: Open User Settings (JSON)`)
 
@@ -34,6 +33,17 @@ optionally also add the following to save on format
 ```json
     "editor.formatOnSave": true,
 ```
+
+## Python 
+
+1. Install the `Python` and `Pylance` extensions by microsoft
+2. install `Robot Developer Extensions for Ros2` by `Ranch Hand Robotics LLC`
+![extension](ros2_vscode_extension.png)
+
+3. run `ROS2: Update Python Path` (you may need to run this periodically when you add new files or make major changes)
+4. you can verify it worked by checking `.vscode/settings.json` and seeing it has added python auto complete and analysis extra paths.
+5. you should now have type hints for ros msg definitions and custom msg definitions like tr_messages inside python! 
+
 
 ## Details and extra info 
 
