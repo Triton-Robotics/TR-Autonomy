@@ -39,7 +39,7 @@ optionally also add the following to save on format
 1. Install the `Python` and `Pylance` extensions by microsoft
 2. install `Robot Developer Extensions for Ros2` by `Ranch Hand Robotics LLC`
 ![extension](ros2_vscode_extension.png)
-
+3. Install `Ruff` by Astral Software
 3. run `ROS2: Update Python Path` (you may need to run this periodically when you add new files or make major changes)
 4. you can verify it worked by checking `.vscode/settings.json` and seeing it has added python auto complete and analysis extra paths.
 5. you should now have type hints for ros msg definitions and custom msg definitions like tr_messages inside python! 

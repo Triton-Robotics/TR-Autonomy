@@ -6,7 +6,7 @@ on:
   push:
 
 jobs:
-  format:
+  lint_and_format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -29,6 +29,9 @@ jobs:
 
       - name: Check Python formatting
         run: ruff format --check .
+
+      - name: Check Python linting
+        run: ruff check .
 
   # Currently this takes 3+ minutes, but I'm keeping this here if we ever need it
   # build:

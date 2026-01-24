@@ -15,3 +15,6 @@ numpy==1.26.4
 mani_skill==3.0.0b21
 torch==2.9.1
 pynput==1.8.1
+
+# for linting & formatting
+ruff==0.14.14

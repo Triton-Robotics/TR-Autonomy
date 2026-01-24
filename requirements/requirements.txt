@@ -7,3 +7,6 @@ PyYAML
 setuptools
 jinja2
 typeguard
+
+# for linting & formatting
+ruff==0.14.14
