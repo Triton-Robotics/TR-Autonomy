@@ -6,7 +6,23 @@ on:
   push:
 
 jobs:
-  build_and_run:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+
+      - name: Check formatting
+        run: |
+          find src -iname *.h -o -iname *.hpp -o -iname *.cpp -o -iname *.c | xargs clang-format --dry-run --Werror
+
+  build:
+    needs: lint
     runs-on: ubuntu-22.04
     container:
       image: ros:humble-ros-base
@@ -65,15 +81,6 @@ jobs:
           
           # Install dependencies from all packages in src/
           rosdep install --from-paths src --ignore-src -r -y
-
-      - name: Install clang-format
-        run: |
-          apt-get update
-          apt-get install -y clang-format
-
-      - name: Check formatting
-        run: |
-          find src -iname *.h -o -iname *.hpp -o -iname *.cpp -o -iname *.c | xargs clang-format --dry-run --Werror
       
       - name: Build with colcon
         shell: bash
