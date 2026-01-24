@@ -5,3 +5,6 @@ log/
 .idea/
 rosbag2*
 .venv/
+
+# clangd cache 
+.cache/
