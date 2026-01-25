@@ -34,6 +34,11 @@ optionally also add the following to save on format
     "editor.formatOnSave": true,
 ```
 
+If you want to auto-format using the terminal, run:
+```
+find . -name "*.cpp" -o -name "*.h" | xargs clang-format -i -style=file
+```
+
 ## Python 
 
 1. Install the `Python` and `Pylance` extensions by microsoft
