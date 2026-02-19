@@ -9,7 +9,10 @@
     - Add the following to your user settings `ctrl + shift + p` and select `Preferences: Open User Settings (JSON)`
     - add: `"C_Cpp.intelliSenseEngine": "disabled",`
 
-3. you will need to `colcon build` and confirm there is a `compile_commands.json` file inside the `build/` directory 
+3. If you are setting up clangd for a different repository (such as a TR autonomy training) you should copy the `colcon_defaults.yaml` from the root of this repository and place it into the root of your other repository. If you are setting up clangd for this TR-Autonomy repository, this is already done for you.]
+
+4. you will need to `colcon build` and **confirm there is a `compile_commands.json` file inside the `build/` directory**
+
 
 **NOTE** Clangd only works if you generate a `compile_commands.json`. The `colcon_defaults.yaml` file in the root of this project automatically adds the cmake flag to generate this when you run `colcon build`. If you are setting up clangd for a different repository you should create a `colcon_defaults.yaml` file in the root of that project.
 
