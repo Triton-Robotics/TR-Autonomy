@@ -43,3 +43,6 @@
 [submodule "src/tr-point-LIO"]
 	path = src/tr-point-LIO
 	url = git@github.com:Triton-Robotics/tr-point-LIO.git
+[submodule "src/tr-odin1-lidar"]
+	path = src/tr-odin1-lidar
+	url = git@github.com:Triton-Robotics/tr-odin1-lidar.git
