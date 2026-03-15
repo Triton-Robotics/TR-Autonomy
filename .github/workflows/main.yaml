@@ -1,0 +1,112 @@
+name: Test Colcon Build
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+
+jobs:
+  lint_and_format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Install clang-format
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format
+
+      - name: Check formatting
+        run: |
+          find src -iname *.h -o -iname *.hpp -o -iname *.cpp -o -iname *.c | xargs clang-format --dry-run --Werror
+
+      - name: Install Ruff
+        run: pip install ruff
+
+      - name: Check Python formatting
+        run: ruff format --check .
+
+      - name: Check Python linting
+        run: ruff check .
+
+  # Currently this takes 3+ minutes, but I'm keeping this here if we ever need it
+  # build:
+  #   needs: format
+  #   runs-on: ubuntu-22.04
+  #   container:
+  #     image: ros:humble-ros-base
+    
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #       with:
+  #         submodules: recursive
+  #         token: ${{ secrets.GH_PAT }}
+      
+  #     - name: Cache Python dependencies
+  #       uses: actions/cache@v3
+  #       id: cache-venv
+  #       with:
+  #         path: .venv
+  #         key: venv-${{ runner.os }}-${{ hashFiles('requirements/all_requirements.txt') }}
+  #         restore-keys: |
+  #           venv-${{ runner.os }}-
+      
+  #     - name: Cache rosdep packages
+  #       uses: actions/cache@v3
+  #       id: cache-rosdep
+  #       with:
+  #         path: |
+  #           /var/cache/apt/archives
+  #           /var/lib/apt/lists
+  #         key: rosdep-${{ runner.os }}-${{ hashFiles('src/**/package.xml') }}
+  #         restore-keys: |
+  #           rosdep-${{ runner.os }}-
+
+  #     - name: Install Python Venv (if cache miss)
+  #       if: steps.cache-venv.outputs.cache-hit != 'true'
+  #       shell: bash
+  #       run: |
+  #         # Install python3-venv if not available
+  #         apt-get update
+  #         apt-get install -y python3-venv
+          
+  #         # Create virtual environment
+  #         python3 -m venv .venv
+          
+  #         # Activate and install dependencies
+  #         source .venv/bin/activate
+  #         pip install --upgrade pip
+  #         pip install -r requirements/all_requirements.txt
+
+  #     - name: Install rosdep dependencies
+  #       run: |
+  #         # Ensure apt cache is preserved
+  #         rm -f /etc/apt/apt.conf.d/docker-clean
+
+  #         # Update rosdep
+  #         apt-get update
+  #         rosdep update
+          
+  #         # Install dependencies from all packages in src/
+  #         rosdep install --from-paths src --ignore-src -r -y
+      
+  #     - name: Build with colcon
+  #       shell: bash
+  #       run: |
+  #         # Activate venv and source ROS2 and workspace environment
+  #         source .venv/bin/activate
+  #         source /opt/ros/humble/setup.bash
+          
+  #         # Make sure build works (ignore hardware specific packages)
+  #         colcon build --packages-ignore \
+  #           camera_node \
+  #           tr-camera-basler \
+  #           lidar_node \
+  #           yolox_ros_cpp \
+  #           yolox_ros \
+  #           yolox_cpp
