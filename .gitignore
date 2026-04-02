@@ -8,3 +8,5 @@ rosbag2*
 
 # clangd cache 
 .cache/
+
+__pycache__/
