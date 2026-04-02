@@ -15,18 +15,22 @@ This repository should only include final, runnable code that follows coding con
 
 ## Prerequisites 
 ```
+Ubunut 22.04 
+install ros2 **humble**
+
 # Needed for YOLOX
 sudo apt install ros-humble-vision-msgs
 ```
 
-## Launching
-
-To prevent the overhead of making multiple terminals, we have setup launch files such as [sim_aiming_launch.bash](./launch/sim_aiming_launch.bash) to more easily run multiple terminals. To run a launch file, all you have to do is navigate into the launch directory, add permissions to run the script (do this for all scripts you plan to run), and then run it.
+## Setup 
 
 ```
-cd ./launch
-chmod u+x ./sim_aiming_launch.bash
-./sim_aiming_launch.bash
+git clone --recurse-submodules 
+
+
+source /opt/ros/humble/setup.bash
+rosdep install -i --from-path src --rosdistro humble -y
+colcon build --packages-up-to [your packages]
 ```
 
 ## LSP and formatting
