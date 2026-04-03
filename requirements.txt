@@ -3,6 +3,7 @@ mani_skill
 torch 
 pynput==1.8.1
 coacd
+numpy>=1.22,<2
 
 # colcon build deps
 catkin_pkg
